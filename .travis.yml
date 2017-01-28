@@ -1,0 +1,13 @@
+language: node_js
+node_js: node
+after_success:
+- yarn build
+- mv build simple-front
+- tar -czvf simple-front.tar.gz simple-front
+deploy:
+  provider: releases
+  api_key:
+    secure: fdiVfKl9Pu5iF8mCY7X9TatN5oN729phoQJZ9Sjmny10qOT35eQ27rJesN9+cSvXwV9k5uPAaJT54zK0nKOh8pB2iJbid0LT5GTMNVb5GUlBIR8r8EMJI9KilpreEWRyxpgqpFA51qZ03r1i/+i+IxS3ZkL73fKhl9gMAaikJ8TuuxjkOviOOqPK3LwtPCX3GvPW0f8zNyVIgNum8OSQ5S5YqZSp0eJD0pomJkUzVlLvwTIjsFHTn8EKycJ5sAJ7yjNy4++0inRyv4YoS/Gp+6Bgq34gaFqDMJ6gwS584pdEUTvVohKhqGNsFMgQYxknZ+uUTenLwyRKheBCE+15RLKhdHzzwSKDS9dQ/914qHqzdtoM8Z7vKjBnrC54oO4jYEDNilhzjVVprWEGWJUFSWVYmJVuNJJNusho+do9GGhqZJkfZz4lBFyul4eduvTKAx4TNtSWbl2BU7yTwWU+y+D2YPNFgnwPtsharwXCzt/Nh5TDQRZcOV8BLFCdj/rRB++Lzk5JfKJ+yx7WuFiTNhOMX39LDm3TCJVL+k5VozJw9gPwqDHoqQst7JjEKc2JgdST06/ENZNj+hYuX6HW+qwlWsYCmgA1frl/YjtLAyyfZuazmsvcsXzzlri1LbIhjUlWxH4dTxsqikSPO/kA2vTiWYhoheoDoOKAGQx/2tE=
+  file: simple-front.tar.gz
+  on:
+    tags: true
