@@ -19,7 +19,7 @@ class SimpleMap extends Component {
     this.onMoveend = (e) => {
       const {lat, lng} = e.target.getCenter()
 
-      fetch(`http://127.0.0.1:8080/cats?lat=${lat}&lng=${lng}&distance=10`)
+      fetch(`http://127.0.0.1:8080/cats?lat=${lat}&lng=${lng}&distance=100`)
         .then((response) => response.json())
         .then((json) => this.setState({ cats: json }))
         .catch((error) => console.log(error))
