@@ -2,6 +2,7 @@
   "name": "lolcat_simple_app",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://catapulte.github.io/simple-front",
   "devDependencies": {
     "react-scripts": "0.8.5"
   },

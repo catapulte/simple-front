@@ -4,6 +4,10 @@ import { Map, Marker, Popup, TileLayer, Leaflet } from 'react-leaflet';
 
 import dateFormat from "dateformat"
 
+const simpleApi = { url: "http://localhost:8080" }
+if (process.env.NODE_ENV === "production") {
+  simpleApi.url = "http://lolcat.passoire.net:8080"
+}
 
 class SimpleMap extends Component {
 
@@ -19,7 +23,7 @@ class SimpleMap extends Component {
     this.onMoveend = (e) => {
       const {lat, lng} = e.target.getCenter()
 
-      fetch(`http://127.0.0.1:8080/cats?lat=${lat}&lng=${lng}&distance=100`)
+      fetch(`${simpleApi.url}/cats?lat=${lat}&lng=${lng}&distance=100`)
         .then((response) => response.json())
         .then((json) => this.setState({ cats: json }))
         .catch((error) => console.log(error))
@@ -38,7 +42,7 @@ class SimpleMap extends Component {
     const lat = this.state.position[0]
     const lng = this.state.position[1]
 
-    fetch(`http://127.0.0.1:8080/cats?lat=${lat}&lng=${lng}&distance=10`)
+    fetch(`${simpleApi.url}/cats?lat=${lat}&lng=${lng}&distance=10`)
       .then((response) => response.json())
       .then((json) => this.setState({ cats: json }))
       .catch((error) => console.log(error))

@@ -1,13 +1,11 @@
 language: node_js
 node_js: node
+cache:
+  directories:
+  - node_modules
 after_success:
 - yarn build
-- mv build simple-front
-- tar -czvf simple-front.tar.gz simple-front
-deploy:
-  provider: releases
-  api_key:
-    secure: fdiVfKl9Pu5iF8mCY7X9TatN5oN729phoQJZ9Sjmny10qOT35eQ27rJesN9+cSvXwV9k5uPAaJT54zK0nKOh8pB2iJbid0LT5GTMNVb5GUlBIR8r8EMJI9KilpreEWRyxpgqpFA51qZ03r1i/+i+IxS3ZkL73fKhl9gMAaikJ8TuuxjkOviOOqPK3LwtPCX3GvPW0f8zNyVIgNum8OSQ5S5YqZSp0eJD0pomJkUzVlLvwTIjsFHTn8EKycJ5sAJ7yjNy4++0inRyv4YoS/Gp+6Bgq34gaFqDMJ6gwS584pdEUTvVohKhqGNsFMgQYxknZ+uUTenLwyRKheBCE+15RLKhdHzzwSKDS9dQ/914qHqzdtoM8Z7vKjBnrC54oO4jYEDNilhzjVVprWEGWJUFSWVYmJVuNJJNusho+do9GGhqZJkfZz4lBFyul4eduvTKAx4TNtSWbl2BU7yTwWU+y+D2YPNFgnwPtsharwXCzt/Nh5TDQRZcOV8BLFCdj/rRB++Lzk5JfKJ+yx7WuFiTNhOMX39LDm3TCJVL+k5VozJw9gPwqDHoqQst7JjEKc2JgdST06/ENZNj+hYuX6HW+qwlWsYCmgA1frl/YjtLAyyfZuazmsvcsXzzlri1LbIhjUlWxH4dTxsqikSPO/kA2vTiWYhoheoDoOKAGQx/2tE=
-  file: simple-front.tar.gz
-  on:
-    tags: true
+- ./.travis-deploy.sh
+env:
+  global:
+    secure: qf/B2UeTH7MsZ7e28/JenT7atXe4Ff7KVoavIjzp//zMkD9+n6DBR9G90RyHTUX8Tntuo3d8kYYmm1W5kaewN4ZP75BtY3v8FWHjZ67dO3jkFo4wnbqrXQEoa9zRT9GIFNkBfBcdLPXqeuHlJiR8AxX1A1eRrQrmPeo04Ufov7WdS9KR0oXGyG0I/+BUZcF2xbqeDSRPU1lx/A7QP6H8QCdNiivaXpkO0m0L1lnEdw1jRY5enIGti9Mg8WgCsEX9ItDtGHkUsyebFQOBHxJIEOGm8CAF2cHbwdoruRE1QakO/ZbF3vj8PePm/162T0/GujliKpXK1xSR4y06hpNaDdmMKFo0Nl1VOSIvtUeYrpTIr/ADaaP/fI4aBm1NGn72FL4FY/xBzSqNj0pA41Sl/CATtceb7NFpy5zAPF54HkOJ/MXpIQEJxbqTI19k/bZCYfqDt1TaYFHW2RWiCxBkTNjS/+eDPqsx4MR+n6zkMmaaDpcumHAXy5xXQ/gWOCDJBh/xFiHIqm/PkqEtYqhw1TghWN+XcARou+BGod/16Tsglp02FBsaQYVsk2BhHjQtW8fBOqGslTGmogREQ/hRPKrKKwQZ9Wj44f9DkWxBhBwCD8faA9HZGKS2De+uX/7Ww0kovk8/iLktORbLqAj/bOAxNrqKiTpp2jC30eFOWdk=
