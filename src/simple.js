@@ -6,7 +6,7 @@ import dateFormat from "dateformat"
 
 const simpleApi = { url: "http://localhost:8080" }
 if (process.env.NODE_ENV === "production") {
-  simpleApi.url = "http://lolcat.passoire.net:8080"
+  simpleApi.url = "https://simple.lolcat.passoire.net"
 }
 
 class SimpleMap extends Component {
